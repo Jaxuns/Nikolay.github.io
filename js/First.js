@@ -1,13 +1,14 @@
 
-	setTimeout(function add(){
+setTimeout(function add(){
 	var element = document.getElementsByTagName('h1')[0];
-	element.className += 'for-h1-border-bg';
-}, 2000)
+
+	element.className += 'for-h1-border-bg';}, 2000)
 
 
-	setTimeout(function(){
-		document.getElementsByTagName('span')[1].className += 'span-dowload-wind',
-		document.getElementsByTagName('span')[2].className += 'span-dowload-wind'},3700);
+setTimeout(function(){
+	document.getElementsByTagName('span')[1].className += 'span-dowload-wind',
+	document.getElementsByTagName('span')[2].className += 'span-dowload-wind'},3700);
+
 /*Анимация контента секции1*/ 
  window.onscroll = function(){
 
@@ -15,11 +16,14 @@
     var widthY = 600;
    
     	for(var i = 0; i<dives.length; i++){
+	    	
 	    	if(window.pageYOffset>= widthY){
-/*Чет*/			if(i%2==0){
+/*Чет*/			
+				if(i%2==0){
 		    		widthY+=500
 		    		dives[i].classList.add('contents-anim-righttoleft')
-	    		}else if(window.pageYOffset>=5100){
+	    		}
+	    		else if(window.pageYOffset>=5100){
 	    			dives.classList.add('contents-anim-righttoleft')
 	    			dives.classList.add('contents-anim-lefttoright')
 	    		}
@@ -32,15 +36,7 @@
     	}
 	
 }
-  /* 	for(var a = 1; a<widthR; a++){
-    	if($(window).scrollTop()>= widthR){
-    		widthR +=1000;
-    		dives[a].classList.add('dives-anim-righttoright')
-   	 }	
-   	 a++
-    }
-}СПРАВА НА ЛЕВО НЕ РЕАЛИЗОВАНО*/
-/*Анимация дивов в секции 1*/
+
 
 /*Паралакс*/
 $('.goheader').parallax({imageSrc: 'Images/fog-3622519_1920-min.jpg'});
@@ -67,13 +63,13 @@ $('.goheader').parallax({imageSrc: 'Images/fog-3622519_1920-min.jpg'});
 			if (target.className == 'tab'){
 				for (var i = 0; i<tab.length; i++){
 					if(target==tab[i]){
-						showTabsContent(i);
+						visionTab(i);
 						break;
 					}
 				}
 			}
 		}
-		function showTabsContent(b){
+		function visionTab(b){
 			if (tabcontent[b].classList.contains('hide')) {
 				noVisionTab(0);
 				tab[b].classList.add('tabcontent-border')
