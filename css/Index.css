@@ -61,28 +61,7 @@ to {color:#ff6633;}
 		transform: rotate(10deg);
 	}
 }
-@keyframes headershow{				/*Хедер анимация*/
-		10% {
-		position: relative;
-		right: -90vw;
-	}
-		40% {
-			position: relative;
-		right: -30vw;
-	}
-		60% {
-			position: relative;
-		right: 10vw;
-	}
-		80%{
-			position: relative;
-		right: -10vw;
-	}
-		100%{
-			position: relative;
-		right: 0vw;
-	}
-}
+
 
 /*Начало Стилей*/  /*Шрифт в самом верху в html-селекторе*/
 body{
@@ -97,7 +76,6 @@ h1{
 }
 
 header{
-	background: url(../Images/fog-3622519_1920-min.jpg);
 	position: relative;
 	width: 100vw;
 	height: 100vh;
@@ -108,9 +86,7 @@ header{
   	z-index: 0;
 }
 
-.goheader{					
-  	animation: headershow 2s 1 alternate ease-in-out;
-}
+
 .airanimate{			/*Самолет*/
 	width: 150px;
 	height: 100px;
@@ -127,7 +103,7 @@ nav{
 	padding-bottom: 10px;
 	position: fixed;
 	z-index: 200;
-	animation: a-shows 2s 1 alternate ease-in-out;
+	animation: a-shows 1.5s 1 alternate ease-in-out;
 	box-sizing: border-box;
 	transition: .5s
 }
@@ -136,7 +112,7 @@ nav{
 	color:#000;
 	background: -webkit-gradient(linear, left bottom, right top, color-stop(50%, rgba(145,255,207,1)), 
 	 color-stop(94%, rgba(150,218,255,.6)),
-	 color-stop(97%, rgba(153,218,255,.6)));;
+	 color-stop(97%, rgba(153,218,255,.6)));
 	z-index: 200;
 }
 ul{
@@ -243,9 +219,8 @@ header p{
 	cursor: pointer;
 	border: none;
 }
-.arrow:target{
-	transform: scale(0.5) rotate(360deg);
-	transition: .5s;
+.arrow:hover{
+	top:90.5%;
 }
 /*Код после хедера*/
 .section1{
@@ -276,7 +251,7 @@ header p{
 	display: flex;
 	margin-top: 180px;
 }
-.dives{
+.contents{
 	visibility: hidden;
 	display: inherit;
 	justify-content: center;
@@ -284,12 +259,12 @@ header p{
 	align-items: flex-end;
 	flex-wrap: wrap;
 }
-.dives-anim-righttoleft{
+.contents-anim-righttoleft{/*2 анимации,классы добавляются на js*/
 	visibility: visible;
 	position: relative;
 	animation: righted .7s 1 normal linear;
 }
-.dives-anim-lefttoright{
+.contents-anim-lefttoright{
 	visibility: inherit;
 	position: relative;
 	animation: lefted .7s 1 normal linear;
@@ -342,12 +317,12 @@ header p{
 /*Вторая секция - галерея*/
 .section2{
 	background:#fff;
-	height: 600px;
+	height: auto;
 	width: 100vw;
 	position: relative;
 	z-index: 2;
 }
-.section2::before{
+.section2::before{/*Треугольник*/
 	content: '';
 	position: absolute;
     border-top: 70px solid transparent; 
@@ -368,17 +343,59 @@ header p{
 }
 .section2 h1{
 	text-align: center;
-	padding-top: 5px;
+}
+.flexible-s2{
+	width: 65vw;
+	margin:40px auto;
+	display: flex;
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.flexible-s2 div{
+	position: relative;
+	margin-top: 50px;
+	display: inherit;
+	flex-direction: column;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	width: 250px;
+	height: 300px;
+}
+.flexible-s2 div:nth-child(1){
+
+}	
+.flexible-s2 div:nth-child(2){
+	
+}
+.flexible-s2 div:nth-child(3){
+	
+}
+.flexible-s2 h1{
+	position: absolute;
+	top:30%;
+	font-size: 20px;
+	z-index: -1;
+}
+.flexible-s2 p{
+	position: absolute;
+	top:40%;
+	text-align: center;
+	z-index: -1;
+}
+.flexible-s2 img{
+	width: 250px;
+	height: 300px;
+}
+.flexible-s2 img:hover{
+	opacity: .5;
+	transition: .5s;
 }
 
-.section2 div{
-	display: inline-block;
-	margin: 50px auto;
-	background: #000;
-	height: 300px;
-	width: 200px;
-	box-shadow: 1px 0px 1px gray;
-}
+
+
 .section3{
 	width: 70vw;
 	margin: 0 auto;
@@ -449,18 +466,28 @@ header p{
 footer{
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	margin: 0px;
 	border-top: 0.4px solid #d1d1d1;
-	background: #fff;
-	height: 100px;
-	width: 65vw;
-	
+	background: #eeeeee;
+	height: 150px;
+	width: 100vw;
 	font-size: 14px;
+	line-height: 30px;
 }
 
 /*Медиазапрос для телефона-------------------------------
 ------------------------------------------------------
 ------------------------------------------------------*/
 @media(max-width: 1080px){
+.goheader{
+	animation:none;
+}
+.airanimate{
+	display: none;
+}
 nav{
 	visibility: hidden;
 }
@@ -475,8 +502,9 @@ nav{
 	display: flex;
 	margin-top: 80px;
 }
-.dives{
+.contents{
 	visibility: visible;
+	animation:none;
 }
 .flexone{
 	text-align: center;
